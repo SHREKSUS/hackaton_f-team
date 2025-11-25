@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background_primary">
+
+    <!-- ScrollView for content -->
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:fillViewport="true"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="32dp">
+
+            <!-- Title -->
+            <TextView
+                android:id="@+id/tvTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="start"
+                android:layout_marginTop="48dp"
+                android:layout_marginBottom="8dp"
+                android:text="@string/login_title"
+                android:textColor="@color/text_primary"
+                android:textSize="32sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/tvSubtitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="start"
+                android:layout_marginBottom="48dp"
+                android:text="@string/login_subtitle"
+                android:textColor="@color/text_secondary"
+                android:textSize="16sp" />
+
+            <!-- Phone Input -->
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/tilEmailOrPhone"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                android:hint="@string/phone"
+                app:boxStrokeColor="@color/input_stroke"
+                app:hintTextColor="@color/input_hint"
+                app:boxStrokeWidth="1dp">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/etEmailOrPhone"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:autofillHints="phone"
+                    android:inputType="phone"
+                    android:textColor="@color/text_primary"
+                    android:textSize="16sp" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <!-- Password Input -->
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/tilPassword"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="24dp"
+                android:hint="@string/password"
+                app:boxStrokeColor="@color/input_stroke"
+                app:endIconMode="password_toggle"
+                app:endIconTint="@color/icon_on_background"
+                app:hintTextColor="@color/input_hint"
+                app:boxStrokeWidth="1dp">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/etPassword"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:autofillHints="password"
+                    android:inputType="textPassword"
+                    android:textColor="@color/text_primary"
+                    android:textSize="16sp" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <!-- Login Button (Black) -->
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnLogin"
+                android:layout_width="match_parent"
+                android:layout_height="56dp"
+                android:layout_marginBottom="24dp"
+                android:background="@drawable/button_black_rounded"
+                android:text="@string/login"
+                android:textColor="@color/button_primary_text"
+                android:textSize="17sp"
+                android:textStyle="bold"
+                app:cornerRadius="16dp" />
+
+            <!-- Register Link -->
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:gravity="center"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/dont_have_account"
+                    android:textColor="@color/text_secondary"
+                    android:textSize="15sp" />
+
+                <TextView
+                    android:id="@+id/tvRegisterLink"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:paddingStart="8dp"
+                    android:paddingTop="4dp"
+                    android:paddingEnd="8dp"
+                    android:paddingBottom="4dp"
+                    android:text="@string/create_account"
+                    android:textColor="@color/text_primary"
+                    android:textSize="15sp"
+                    android:textStyle="bold" />
+            </LinearLayout>
+
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

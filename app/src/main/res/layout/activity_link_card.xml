@@ -1,0 +1,214 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background_primary">
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="24dp">
+
+            <!-- Title -->
+
+            <!-- Subtitle -->
+
+            <TextView
+                android:id="@+id/tvTitle"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:text="Привязка карты"
+                android:textColor="@color/text_primary"
+                android:textSize="28sp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/tvSubtitle"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="Выберите способ привязки карты"
+                android:textColor="@color/text_secondary"
+                android:textSize="16sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tvTitle" />
+
+            <!-- Link Method Selection -->
+            <com.google.android.material.button.MaterialButtonToggleGroup
+                android:id="@+id/toggleLinkMethod"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="24dp"
+                app:singleSelection="true"
+                app:checkedButton="@id/btnLinkByCard"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tvSubtitle">
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnLinkByCard"
+                    style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="По номеру карты"
+                    android:textSize="14sp" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnLinkByPhone"
+                    style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="По номеру телефона"
+                    android:textSize="14sp" />
+            </com.google.android.material.button.MaterialButtonToggleGroup>
+
+            <!-- Card Details Container -->
+            <androidx.constraintlayout.widget.Group
+                android:id="@+id/groupCardDetails"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:visibility="visible"
+                app:constraint_referenced_ids="tilCardNumber,tilExpiry,tilCvv,tilCardholderName" />
+
+            <!-- Card Number -->
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/tilCardNumber"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="32dp"
+                android:hint="Номер карты"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/toggleLinkMethod">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/etCardNumber"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="number"
+                    android:maxLength="19" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <!-- Expiry and CVV Row -->
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/tilExpiry"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="8dp"
+                android:hint="Срок действия (MM/YY)"
+                app:layout_constraintEnd_toStartOf="@id/tilCvv"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tilCardNumber">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/etExpiry"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="number"
+                    android:maxLength="5" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/tilCvv"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:layout_marginStart="8dp"
+                android:hint="CVV"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/tilExpiry"
+                app:layout_constraintTop_toBottomOf="@id/tilCardNumber">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/etCvv"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="numberPassword"
+                    android:maxLength="4" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <!-- Cardholder Name -->
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/tilCardholderName"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:hint="Имя держателя карты"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tilExpiry">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/etCardholderName"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="textCapWords"
+                    android:maxLength="50" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <!-- Phone Number Container -->
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/tilPhoneNumber"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="32dp"
+                android:hint="Номер телефона"
+                android:visibility="gone"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/toggleLinkMethod">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/etPhoneNumber"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="phone"
+                    android:maxLength="18" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <!-- Link Card Button -->
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnLinkCard"
+                android:layout_width="0dp"
+                android:layout_height="56dp"
+                android:layout_marginTop="32dp"
+                android:text="Привязать карту"
+                android:textSize="17sp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tilCardholderName" />
+
+            <!-- Cancel Button -->
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnCancel"
+                android:layout_width="0dp"
+                android:layout_height="56dp"
+                android:layout_marginTop="16dp"
+                android:text="Отмена"
+                android:textSize="17sp"
+                app:backgroundTint="@color/button_secondary_bg"
+                app:strokeColor="@color/button_border"
+                app:strokeWidth="1dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/btnLinkCard" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.core.widget.NestedScrollView>
+</androidx.coordinatorlayout.widget.CoordinatorLayout>
+

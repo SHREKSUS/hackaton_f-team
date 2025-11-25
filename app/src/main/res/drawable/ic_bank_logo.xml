@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="200dp"
+    android:height="120dp"
+    android:viewportWidth="200"
+    android:viewportHeight="120">
+    
+    <!-- Bank building icon (simple rectangle with lines for windows) -->
+    <path
+        android:fillColor="@color/icon_on_background"
+        android:pathData="M50,20 L150,20 L150,70 L50,70 Z"/>
+    
+    <!-- Windows row 1 -->
+    <path
+        android:fillColor="@color/icon_on_background"
+        android:pathData="M60,35 L75,35 L75,50 L60,50 Z"/>
+    <path
+        android:fillColor="@color/icon_on_background"
+        android:pathData="M85,35 L100,35 L100,50 L85,50 Z"/>
+    <path
+        android:fillColor="@color/icon_on_background"
+        android:pathData="M110,35 L125,35 L125,50 L110,50 Z"/>
+    
+    <!-- F-BANK Text (simplified representation) -->
+    <!-- F letter -->
+    <path
+        android:fillColor="@color/icon_on_background"
+        android:pathData="M60,80 L80,80 L80,85 L60,85 Z"/>
+    <path
+        android:fillColor="@color/icon_on_background"
+        android:pathData="M60,80 L70,80 L70,100 L60,100 Z"/>
+    <path
+        android:fillColor="@color/icon_on_background"
+        android:pathData="M60,90 L70,90 L70,95 L60,95 Z"/>
+    
+    <!-- Dash -->
+    <path
+        android:fillColor="@color/icon_on_background"
+        android:pathData="M85,87 L95,87 L95,92 L85,92 Z"/>
+    
+    <!-- B letter (simplified) -->
+    <path
+        android:fillColor="@color/icon_on_background"
+        android:pathData="M105,80 L105,100 L115,100 L115,95 L110,95 L110,92 L115,92 L115,88 L110,88 L110,85 L115,85 L115,80 Z"/>
+    
+</vector>

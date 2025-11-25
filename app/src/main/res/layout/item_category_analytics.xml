@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginStart="24dp"
+    android:layout_marginTop="12dp"
+    android:layout_marginEnd="24dp"
+    android:background="@drawable/card_border"
+    app:cardCornerRadius="16dp"
+    app:cardElevation="0dp"
+    app:cardBackgroundColor="@android:color/transparent">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="16dp">
+
+        <!-- Icon Container -->
+        <View
+            android:id="@+id/iconContainer"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:background="@color/button_primary_bg"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/ivIcon"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_gravity="center"
+            android:src="@drawable/ic_wallet"
+            app:layout_constraintBottom_toBottomOf="@id/iconContainer"
+            app:layout_constraintEnd_toEndOf="@id/iconContainer"
+            app:layout_constraintStart_toStartOf="@id/iconContainer"
+            app:layout_constraintTop_toTopOf="@id/iconContainer"
+            app:tint="@color/white" />
+
+        <!-- Category Name and Amount -->
+        <LinearLayout
+            android:id="@+id/categoryInfo"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="16dp"
+            android:orientation="vertical"
+            app:layout_constraintEnd_toStartOf="@id/tvPercentage"
+            app:layout_constraintStart_toEndOf="@id/iconContainer"
+            app:layout_constraintTop_toTopOf="@id/iconContainer">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/tvCategoryName"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Категория"
+                    android:textColor="@color/text_primary"
+                    android:textSize="16sp" />
+
+                <TextView
+                    android:id="@+id/tvAmount"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="0 Р"
+                    android:textColor="@color/text_primary"
+                    android:textSize="16sp"
+                    android:textStyle="bold" />
+            </LinearLayout>
+
+            <!-- Progress Bar -->
+            <FrameLayout
+                android:id="@+id/progressBarContainer"
+                android:layout_width="match_parent"
+                android:layout_height="6dp"
+                android:layout_marginTop="8dp"
+                android:background="@color/surface_primary">
+
+                <View
+                    android:id="@+id/progressBar"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:background="@color/button_primary_bg" />
+            </FrameLayout>
+        </LinearLayout>
+
+        <!-- Percentage -->
+        <TextView
+            android:id="@+id/tvPercentage"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="0%"
+            android:textColor="@color/text_secondary"
+            android:textSize="14sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@id/iconContainer" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.cardview.widget.CardView>

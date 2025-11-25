@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background_primary">
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:fillViewport="true"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="32dp">
+
+            <!-- Back Button -->
+            <ImageButton
+                android:id="@+id/btnBack"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:layout_gravity="start"
+                android:layout_marginTop="16dp"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                android:src="@drawable/ic_arrow_back"
+                android:tint="@color/text_primary" />
+
+            <!-- Title -->
+            <TextView
+                android:id="@+id/tvTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="start"
+                android:layout_marginTop="16dp"
+                android:layout_marginBottom="8dp"
+                android:text="Регистрация"
+                android:textColor="@color/text_primary"
+                android:textSize="32sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/tvSubtitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="start"
+                android:layout_marginBottom="48dp"
+                android:text="Шаг 2 из 3"
+                android:textColor="@color/text_secondary"
+                android:textSize="16sp" />
+
+            <!-- Last Name Input -->
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/tilLastName"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                android:hint="Фамилия"
+                app:boxStrokeColor="@color/input_stroke"
+                app:hintTextColor="@color/input_hint"
+                app:boxStrokeWidth="1dp">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/etLastName"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:autofillHints="familyName"
+                    android:inputType="textPersonName"
+                    android:textColor="@color/text_primary"
+                    android:textSize="16sp" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <!-- First Name Input -->
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/tilFirstName"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                android:hint="Имя"
+                app:boxStrokeColor="@color/input_stroke"
+                app:hintTextColor="@color/input_hint"
+                app:boxStrokeWidth="1dp">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/etFirstName"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:autofillHints="givenName"
+                    android:inputType="textPersonName"
+                    android:textColor="@color/text_primary"
+                    android:textSize="16sp" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <!-- Middle Name Input -->
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/tilMiddleName"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                android:hint="Отчество (необязательно)"
+                app:boxStrokeColor="@color/input_stroke"
+                app:hintTextColor="@color/input_hint"
+                app:boxStrokeWidth="1dp">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/etMiddleName"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:autofillHints=""
+                    android:inputType="textPersonName"
+                    android:textColor="@color/text_primary"
+                    android:textSize="16sp" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <!-- INN Input -->
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/tilInn"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="32dp"
+                android:hint="ИНН"
+                app:boxStrokeColor="@color/input_stroke"
+                app:hintTextColor="@color/input_hint"
+                app:boxStrokeWidth="1dp">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/etInn"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:autofillHints=""
+                    android:inputType="number"
+                    android:maxLength="12"
+                    android:textColor="@color/text_primary"
+                    android:textSize="16sp" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <!-- Next Button -->
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnNext"
+                android:layout_width="match_parent"
+                android:layout_height="56dp"
+                android:layout_marginBottom="24dp"
+                android:background="@drawable/button_black_rounded"
+                android:text="Далее"
+                android:textColor="@color/button_primary_text"
+                android:textSize="17sp"
+                android:textStyle="bold"
+                app:cornerRadius="16dp" />
+
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+

@@ -1,0 +1,465 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background_primary">
+
+    <!-- Header -->
+    <LinearLayout
+        android:id="@+id/header"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/card_dark_bg"
+        android:orientation="horizontal"
+        android:padding="20dp"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageButton
+            android:id="@+id/btnBack"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:src="@drawable/ic_arrow_back"
+            android:tint="@color/card_text_white" />
+
+    </LinearLayout>
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="64dp"
+        android:layout_marginBottom="80dp"
+        android:fillViewport="true">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="24dp">
+
+            <!-- From Label -->
+            <TextView
+                android:id="@+id/tvFromLabel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:text="Откуда"
+                android:textColor="@color/text_primary"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <!-- From Card Selection Button -->
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnSelectFromCard"
+                style="@style/Widget.MaterialComponents.Button.TextButton"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:minHeight="72dp"
+                android:paddingStart="16dp"
+                android:paddingEnd="16dp"
+                android:text="Выберите счет"
+                android:textColor="@color/text_primary"
+                android:textSize="16sp"
+                android:gravity="start|center_vertical"
+                android:insetTop="0dp"
+                android:insetBottom="0dp"
+                android:insetLeft="0dp"
+                android:insetRight="0dp"
+                app:icon="@drawable/baseline_credit_card_24"
+                app:iconGravity="start"
+                app:iconPadding="12dp"
+                app:iconTint="@color/text_secondary"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tvFromLabel" />
+
+            <!-- Transfer System Label -->
+            <TextView
+                android:id="@+id/tvTransferSystemLabel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="24dp"
+                android:text="Система перевода"
+                android:textColor="@color/text_primary"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/btnSelectFromCard" />
+
+            <!-- Transfer System Selection -->
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/tilTransferSystem"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:hint="Выберите систему перевода"
+                app:boxStrokeColor="@color/input_stroke"
+                app:hintTextColor="@color/input_hint"
+                app:boxStrokeWidth="1dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tvTransferSystemLabel">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/etTransferSystem"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="none"
+                    android:textColor="@color/text_primary"
+                    android:textSize="18sp"
+                    android:focusable="false"
+                    android:clickable="true" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <!-- Recipient Name Label -->
+            <TextView
+                android:id="@+id/tvRecipientNameLabel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="24dp"
+                android:text="Имя получателя"
+                android:textColor="@color/text_primary"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tilTransferSystem" />
+
+            <!-- Recipient Name Input -->
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/tilRecipientName"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:hint="Имя получателя"
+                app:boxStrokeColor="@color/input_stroke"
+                app:hintTextColor="@color/input_hint"
+                app:boxStrokeWidth="1dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tvRecipientNameLabel">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/etRecipientName"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="textPersonName"
+                    android:textColor="@color/text_primary"
+                    android:textSize="18sp"
+                    android:maxLength="100" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <!-- SWIFT Code Container (visible for SWIFT) -->
+            <androidx.constraintlayout.widget.Group
+                android:id="@+id/groupSwiftFields"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:visibility="gone"
+                app:constraint_referenced_ids="tvSwiftLabel,tilSwiftCode,tvIbanLabel,tilIban" />
+
+            <!-- SWIFT Code Label -->
+            <TextView
+                android:id="@+id/tvSwiftLabel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="24dp"
+                android:text="SWIFT код банка"
+                android:textColor="@color/text_primary"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:visibility="gone"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tilRecipientName" />
+
+            <!-- SWIFT Code Input -->
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/tilSwiftCode"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:hint="SWIFT код (8-11 символов)"
+                android:visibility="gone"
+                app:boxStrokeColor="@color/input_stroke"
+                app:hintTextColor="@color/input_hint"
+                app:boxStrokeWidth="1dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tvSwiftLabel">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/etSwiftCode"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="textCapCharacters"
+                    android:textColor="@color/text_primary"
+                    android:textSize="18sp"
+                    android:maxLength="11" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <!-- IBAN Label -->
+            <TextView
+                android:id="@+id/tvIbanLabel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="24dp"
+                android:text="IBAN получателя"
+                android:textColor="@color/text_primary"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:visibility="gone"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tilSwiftCode" />
+
+            <!-- IBAN Input -->
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/tilIban"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:hint="IBAN (до 34 символов)"
+                android:visibility="gone"
+                app:boxStrokeColor="@color/input_stroke"
+                app:hintTextColor="@color/input_hint"
+                app:boxStrokeWidth="1dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tvIbanLabel">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/etIban"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="textCapCharacters"
+                    android:textColor="@color/text_primary"
+                    android:textSize="18sp"
+                    android:maxLength="34" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <!-- Western Union / Korona Pay Fields Container -->
+            <androidx.constraintlayout.widget.Group
+                android:id="@+id/groupWUFields"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:visibility="gone"
+                app:constraint_referenced_ids="tvReceiverPhoneLabel,tilReceiverPhone" />
+
+            <!-- Receiver Phone Label (for Western Union / Korona Pay) -->
+            <TextView
+                android:id="@+id/tvReceiverPhoneLabel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="24dp"
+                android:text="Номер телефона получателя"
+                android:textColor="@color/text_primary"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:visibility="gone"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tilRecipientName" />
+
+            <!-- Receiver Phone Input (for Western Union / Korona Pay) -->
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/tilReceiverPhone"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:hint="Номер телефона получателя"
+                android:visibility="gone"
+                app:boxStrokeColor="@color/input_stroke"
+                app:hintTextColor="@color/input_hint"
+                app:boxStrokeWidth="1dp"
+                app:startIconDrawable="@drawable/ic_phone"
+                app:startIconTint="@color/icon_on_background"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tvReceiverPhoneLabel">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/etReceiverPhone"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="phone"
+                    android:textColor="@color/text_primary"
+                    android:textSize="18sp"
+                    android:maxLength="18" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <!-- Barrier to handle dynamic positioning based on transfer system -->
+            <androidx.constraintlayout.widget.Barrier
+                android:id="@+id/barrierAfterRecipientInfo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:barrierDirection="bottom"
+                app:constraint_referenced_ids="tilIban,tilReceiverPhone" />
+
+            <!-- Country Label -->
+            <TextView
+                android:id="@+id/tvCountryLabel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="24dp"
+                android:text="Страна получателя"
+                android:textColor="@color/text_primary"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/barrierAfterRecipientInfo" />
+
+            <!-- Country Input -->
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/tilCountry"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:hint="Страна получателя"
+                app:boxStrokeColor="@color/input_stroke"
+                app:hintTextColor="@color/input_hint"
+                app:boxStrokeWidth="1dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tvCountryLabel">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/etCountry"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="none"
+                    android:textColor="@color/text_primary"
+                    android:textSize="18sp"
+                    android:focusable="false"
+                    android:clickable="true" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <!-- Amount -->
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/tilAmount"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="24dp"
+                android:hint="Сумма перевода"
+                app:boxStrokeColor="@color/input_stroke"
+                app:hintTextColor="@color/input_hint"
+                app:boxStrokeWidth="1dp"
+                app:startIconDrawable="@drawable/ic_currency"
+                app:startIconTint="@color/icon_on_background"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tilCountry">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/etAmount"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="numberDecimal"
+                    android:textColor="@color/text_primary"
+                    android:textSize="18sp" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <!-- Currency Label -->
+            <TextView
+                android:id="@+id/tvCurrencyLabel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="24dp"
+                android:text="Валюта"
+                android:textColor="@color/text_primary"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tilAmount" />
+
+            <!-- Currency Input -->
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/tilCurrency"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:hint="Валюта"
+                app:boxStrokeColor="@color/input_stroke"
+                app:hintTextColor="@color/input_hint"
+                app:boxStrokeWidth="1dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tvCurrencyLabel">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/etCurrency"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="none"
+                    android:textColor="@color/text_primary"
+                    android:textSize="18sp"
+                    android:focusable="false"
+                    android:clickable="true" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <!-- Description (Optional) -->
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/tilDescription"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:hint="Назначение платежа (необязательно)"
+                app:boxStrokeColor="@color/input_stroke"
+                app:hintTextColor="@color/input_hint"
+                app:boxStrokeWidth="1dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tilCurrency">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/etDescription"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="text"
+                    android:textColor="@color/text_primary"
+                    android:textSize="16sp"
+                    android:maxLength="200" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.core.widget.NestedScrollView>
+
+    <!-- Transfer Button (Fixed at bottom) -->
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btnTransfer"
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:layout_gravity="bottom"
+        android:layout_marginStart="24dp"
+        android:layout_marginEnd="24dp"
+        android:layout_marginBottom="24dp"
+        android:background="@drawable/button_black_rounded"
+        android:text="@string/transfer"
+        android:textColor="@color/button_primary_text"
+        android:textSize="17sp"
+        android:textStyle="bold"
+        app:cornerRadius="16dp" />
+
+    <TextView
+        android:id="@+id/tvTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_weight="1"
+        android:gravity="center"
+        android:text="@string/international_transfers"
+        android:textColor="@color/card_text_white"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_anchor="@+id/header"
+        app:layout_anchorGravity="center" />
+</androidx.coordinatorlayout.widget.CoordinatorLayout>
+

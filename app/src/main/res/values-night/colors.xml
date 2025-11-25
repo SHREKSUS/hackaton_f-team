@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+
+    <color name="background_primary">#FF101114</color>
+    <color name="surface_primary">#FF1B1C21</color>
+    <color name="card_background">#FF1F2026</color>
+
+    <color name="text_primary">#FFFFFFFF</color>
+    <color name="text_secondary">#FFCACBD3</color>
+
+    <color name="button_primary_bg">#FFFFFFFF</color>
+    <color name="button_primary_text">#FF111111</color>
+    <color name="button_secondary_bg">#FF1B1C21</color>
+    <color name="button_secondary_text">#FFFFFFFF</color>
+    <color name="button_border">#FF484A52</color>
+
+    <color name="input_stroke">#FF5C5F68</color>
+    <color name="input_hint">#FF9FA3AF</color>
+
+    <color name="divider">#FF2F3138</color>
+    <color name="gradient_start">#FF1F2026</color>
+    <color name="gradient_end">#FF101114</color>
+
+    <color name="icon_on_primary">#FF111111</color>
+    <color name="icon_on_background">#FFFFFFFF</color>
+    <color name="status_bar_color">#FF101114</color>
+    
+    <!-- PIN colors -->
+    <color name="pin_success">#FF4CAF50</color>
+    <color name="pin_error">#FFF44336</color>
+    
+    <!-- Card colors -->
+    <color name="card_dark_bg">#FF1A1A1A</color>
+    <color name="card_text_white">#FFFFFFFF</color>
+    <color name="transaction_positive">#FF4CAF50</color>
+    <color name="transaction_negative">#FFCACBD3</color>
+    <color name="transaction_card_bg">#FF1F2026</color>
+</resources>
+

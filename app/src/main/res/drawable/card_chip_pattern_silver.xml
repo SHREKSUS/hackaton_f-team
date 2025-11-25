@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="48dp"
+    android:height="40dp"
+    android:viewportWidth="48"
+    android:viewportHeight="40">
+    
+    <!-- Grid pattern: 4 columns x 3 rows = 12 squares -->
+    <!-- Row 1 -->
+    <path
+        android:fillColor="#6B72804D"
+        android:pathData="M1,1 L11,1 L11,11 L1,11 Z"
+        android:fillAlpha="0.3" />
+    <path
+        android:fillColor="#6B72804D"
+        android:pathData="M13,1 L23,1 L23,11 L13,11 Z"
+        android:fillAlpha="0.3" />
+    <path
+        android:fillColor="#6B72804D"
+        android:pathData="M25,1 L35,1 L35,11 L25,11 Z"
+        android:fillAlpha="0.3" />
+    <path
+        android:fillColor="#6B72804D"
+        android:pathData="M37,1 L47,1 L47,11 L37,11 Z"
+        android:fillAlpha="0.3" />
+    
+    <!-- Row 2 -->
+    <path
+        android:fillColor="#6B72804D"
+        android:pathData="M1,14 L11,14 L11,24 L1,24 Z"
+        android:fillAlpha="0.3" />
+    <path
+        android:fillColor="#6B72804D"
+        android:pathData="M13,14 L23,14 L23,24 L13,24 Z"
+        android:fillAlpha="0.3" />
+    <path
+        android:fillColor="#6B72804D"
+        android:pathData="M25,14 L35,14 L35,24 L25,24 Z"
+        android:fillAlpha="0.3" />
+    <path
+        android:fillColor="#6B72804D"
+        android:pathData="M37,14 L47,14 L47,24 L37,24 Z"
+        android:fillAlpha="0.3" />
+    
+    <!-- Row 3 -->
+    <path
+        android:fillColor="#6B72804D"
+        android:pathData="M1,27 L11,27 L11,37 L1,37 Z"
+        android:fillAlpha="0.3" />
+    <path
+        android:fillColor="#6B72804D"
+        android:pathData="M13,27 L23,27 L23,37 L13,37 Z"
+        android:fillAlpha="0.3" />
+    <path
+        android:fillColor="#6B72804D"
+        android:pathData="M25,27 L35,27 L35,37 L25,37 Z"
+        android:fillAlpha="0.3" />
+    <path
+        android:fillColor="#6B72804D"
+        android:pathData="M37,27 L47,27 L47,37 L37,37 Z"
+        android:fillAlpha="0.3" />
+</vector>
+

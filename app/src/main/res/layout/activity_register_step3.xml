@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background_primary">
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:fillViewport="true"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="32dp">
+
+            <!-- Back Button -->
+            <ImageButton
+                android:id="@+id/btnBack"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:layout_gravity="start"
+                android:layout_marginTop="16dp"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                android:src="@drawable/ic_arrow_back"
+                android:tint="@color/text_primary" />
+
+            <!-- Title -->
+            <TextView
+                android:id="@+id/tvTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="start"
+                android:layout_marginTop="16dp"
+                android:layout_marginBottom="8dp"
+                android:text="Регистрация"
+                android:textColor="@color/text_primary"
+                android:textSize="32sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/tvSubtitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="start"
+                android:layout_marginBottom="48dp"
+                android:text="Шаг 3 из 3"
+                android:textColor="@color/text_secondary"
+                android:textSize="16sp" />
+
+            <!-- Password Input -->
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/tilPassword"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                android:hint="@string/password"
+                app:boxStrokeColor="@color/input_stroke"
+                app:endIconMode="password_toggle"
+                app:endIconTint="@color/icon_on_background"
+                app:hintTextColor="@color/input_hint"
+                app:boxStrokeWidth="1dp">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/etPassword"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:autofillHints="password"
+                    android:inputType="textPassword"
+                    android:textColor="@color/text_primary"
+                    android:textSize="16sp" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <!-- Confirm Password Input -->
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/tilConfirmPassword"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="32dp"
+                android:hint="@string/confirm_password"
+                app:boxStrokeColor="@color/input_stroke"
+                app:endIconMode="password_toggle"
+                app:endIconTint="@color/icon_on_background"
+                app:hintTextColor="@color/input_hint"
+                app:boxStrokeWidth="1dp">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/etConfirmPassword"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:autofillHints="password"
+                    android:inputType="textPassword"
+                    android:textColor="@color/text_primary"
+                    android:textSize="16sp" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <!-- Terms Checkbox -->
+            <com.google.android.material.checkbox.MaterialCheckBox
+                android:id="@+id/cbTerms"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                android:text="Согласие с условиями"
+                android:textColor="@color/text_primary"
+                android:textSize="16sp"
+                app:buttonTint="@color/checkbox_color_state"
+                app:useMaterialThemeColors="false" />
+
+            <TextView
+                android:id="@+id/tvTermsLink"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="48dp"
+                android:layout_marginBottom="24dp"
+                android:clickable="true"
+                android:focusable="true"
+                android:text="Просмотреть условия использования"
+                android:textColor="@color/button_primary_bg"
+                android:textSize="14sp"
+                android:drawablePadding="4dp" />
+
+            <!-- Data Processing Checkbox -->
+            <com.google.android.material.checkbox.MaterialCheckBox
+                android:id="@+id/cbDataProcessing"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                android:text="Согласие на обработку данных"
+                android:textColor="@color/text_primary"
+                android:textSize="16sp"
+                app:buttonTint="@color/checkbox_color_state"
+                app:useMaterialThemeColors="false" />
+
+            <TextView
+                android:id="@+id/tvDataProcessingLink"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="48dp"
+                android:layout_marginBottom="32dp"
+                android:clickable="true"
+                android:focusable="true"
+                android:text="Просмотреть политику конфиденциальности"
+                android:textColor="@color/button_primary_bg"
+                android:textSize="14sp" />
+
+            <!-- Register Button -->
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnRegister"
+                android:layout_width="match_parent"
+                android:layout_height="56dp"
+                android:layout_marginBottom="24dp"
+                android:background="@drawable/button_black_rounded"
+                android:text="@string/register"
+                android:textColor="@color/button_primary_text"
+                android:textSize="17sp"
+                android:textStyle="bold"
+                android:enabled="false"
+                app:cornerRadius="16dp" />
+
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+

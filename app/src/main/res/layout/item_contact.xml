@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:clickable="true"
+    android:focusable="true"
+    android:padding="16dp">
+
+    <!-- Avatar Circle -->
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/cvAvatar"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:clickable="false"
+        android:focusable="false"
+        app:cardBackgroundColor="@color/card_dark_bg"
+        app:cardCornerRadius="24dp"
+        app:cardElevation="2dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:id="@+id/tvInitials"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:text="МП"
+            android:textColor="@color/card_text_white"
+            android:textSize="16sp"
+            android:textStyle="bold" />
+    </com.google.android.material.card.MaterialCardView>
+
+    <!-- Name -->
+    <TextView
+        android:id="@+id/tvName"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="8dp"
+        android:text="Мария Петрова"
+        android:textColor="@color/text_primary"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toStartOf="@id/tvPhone"
+        app:layout_constraintStart_toEndOf="@id/cvAvatar"
+        app:layout_constraintTop_toTopOf="@id/cvAvatar" />
+
+    <!-- Phone -->
+    <TextView
+        android:id="@+id/tvPhone"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:text="+7 (777) 123-45-67"
+        android:textColor="@color/text_secondary"
+        android:textSize="14sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@id/tvName" />
+</androidx.constraintlayout.widget.ConstraintLayout>
+

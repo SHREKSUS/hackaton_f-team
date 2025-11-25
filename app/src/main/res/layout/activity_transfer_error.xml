@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background_primary">
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="24dp"
+            android:paddingBottom="100dp">
+
+    <!-- Error Icon -->
+    <ImageView
+        android:id="@+id/ivErrorIcon"
+        android:layout_width="120dp"
+        android:layout_height="120dp"
+        android:layout_marginTop="120dp"
+        android:src="@drawable/baseline_error_24"
+        android:tint="#FFF44336"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <!-- Error Title -->
+    <TextView
+        android:id="@+id/tvErrorTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:text="Ошибка перевода"
+        android:textColor="@color/text_primary"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/ivErrorIcon" />
+
+    <!-- Error Message -->
+    <TextView
+        android:id="@+id/tvErrorMessage"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:gravity="center"
+        android:text="Не удалось выполнить перевод"
+        android:textColor="@color/text_secondary"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tvErrorTitle" />
+
+            <!-- Try Again Button -->
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnTryAgain"
+                android:layout_width="0dp"
+                android:layout_height="56dp"
+                android:layout_marginTop="48dp"
+                android:background="@drawable/button_black_rounded"
+                android:text="Попробовать снова"
+                android:textColor="@color/button_primary_text"
+                android:textSize="17sp"
+                android:textStyle="bold"
+                app:cornerRadius="16dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tvErrorMessage" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.core.widget.NestedScrollView>
+
+    <!-- Back to Main Button (Fixed at bottom) -->
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btnBackToMain"
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:layout_gravity="bottom"
+        android:layout_marginStart="24dp"
+        android:layout_marginEnd="24dp"
+        android:layout_marginBottom="24dp"
+        android:background="@drawable/button_black_rounded"
+        android:text="На главную страницу"
+        android:textColor="@color/button_primary_text"
+        android:textSize="17sp"
+        android:textStyle="bold"
+        app:cornerRadius="16dp" />
+</androidx.coordinatorlayout.widget.CoordinatorLayout>
+

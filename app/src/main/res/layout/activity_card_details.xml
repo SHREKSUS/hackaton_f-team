@@ -1,0 +1,454 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background_primary">
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="24dp">
+
+            <!-- Back Button -->
+            <ImageButton
+                android:id="@+id/btnBack"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:layout_marginTop="16dp"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                android:src="@drawable/ic_arrow_back"
+                android:tint="@color/text_primary"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <!-- Title -->
+            <TextView
+                android:id="@+id/tvTitle"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="16dp"
+                android:text="Информация о карте"
+                android:textColor="@color/text_primary"
+                android:textSize="28sp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/btnBack"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <!-- Card Preview -->
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/cvCardPreview"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="24dp"
+                android:minHeight="200dp"
+                app:cardBackgroundColor="@color/card_dark_bg"
+                app:cardCornerRadius="20dp"
+                app:cardElevation="8dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tvTitle">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="24dp">
+
+                    <!-- Card Chip -->
+                    <View
+                        android:id="@+id/viewChip"
+                        android:layout_width="40dp"
+                        android:layout_height="32dp"
+                        android:background="@drawable/ic_card_chip_blue"
+                        android:elevation="2dp"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <!-- Card Type Badge -->
+                    <TextView
+                        android:id="@+id/tvCardTypeBadge"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="8dp"
+                        android:text="DEBIT"
+                        android:textColor="@color/card_text_white"
+                        android:textSize="12sp"
+                        android:textStyle="bold"
+                        android:visibility="visible"
+                        app:layout_constraintStart_toEndOf="@id/viewChip"
+                        app:layout_constraintTop_toTopOf="@id/viewChip"
+                        app:layout_constraintBottom_toBottomOf="@id/viewChip" />
+
+                    <!-- Contactless Icon -->
+
+                    <!-- More Menu Icon -->
+                    <ImageView
+                        android:id="@+id/ivMore"
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:layout_marginEnd="4dp"
+                        android:src="@drawable/ic_more_vertical"
+                        android:tint="@color/card_text_white"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <!-- Accent Line -->
+                    <View
+                        android:id="@+id/viewAccentLine"
+                        android:layout_width="0dp"
+                        android:layout_height="2dp"
+                        android:layout_marginTop="16dp"
+                        android:background="@drawable/card_accent_line_blue"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/viewChip" />
+
+                    <!-- Card Number with dots and Balance Row -->
+                    <LinearLayout
+                        android:id="@+id/llCardNumberBalance"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="24dp"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/viewAccentLine">
+
+                        <!-- Card Number with dots -->
+                        <TextView
+                            android:id="@+id/tvCardNumber"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:letterSpacing="0.05"
+                            android:text=".... .... .... 4829"
+                            android:textColor="@color/card_text_white"
+                            android:textSize="18sp"
+                            android:textStyle="bold" />
+
+                        <!-- Card Balance -->
+                        <TextView
+                            android:id="@+id/tvCardBalance"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="0 ₸"
+                            android:textColor="@color/card_text_white"
+                            android:textSize="18sp"
+                            android:textStyle="bold" />
+                    </LinearLayout>
+
+                    <!-- Cardholder Label -->
+                    <TextView
+                        android:id="@+id/tvCardholderLabel"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Владелец"
+                        android:textColor="@color/card_text_grey"
+                        android:textSize="10sp"
+                        app:layout_constraintBottom_toTopOf="@id/tvCardholderName"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/llCardNumberBalance" />
+
+                    <!-- Cardholder Name -->
+                    <TextView
+                        android:id="@+id/tvCardholderName"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="4dp"
+                        android:letterSpacing="0.05"
+                        android:text="IVAN PETROVICH"
+                        android:textColor="@color/card_text_white"
+                        android:textSize="14sp"
+                        android:textStyle="bold"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/tvCardholderLabel" />
+
+                    <!-- Valid Thru Label -->
+                    <TextView
+                        android:id="@+id/tvValidThruLabel"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Действует"
+                        android:textColor="@color/card_text_grey"
+                        android:textSize="10sp"
+                        app:layout_constraintBottom_toTopOf="@id/tvExpiry"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/llCardNumberBalance" />
+
+                    <!-- Expiry Date -->
+                    <TextView
+                        android:id="@+id/tvExpiry"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="4dp"
+                        android:text="12/28"
+                        android:textColor="@color/card_text_white"
+                        android:textSize="14sp"
+                        android:textStyle="bold"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/tvValidThruLabel" />
+
+                    <!-- Blocked Badge -->
+                    <TextView
+                        android:id="@+id/tvBlockedBadge"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/card_blocked_badge"
+                        android:paddingStart="8dp"
+                        android:paddingTop="4dp"
+                        android:paddingEnd="8dp"
+                        android:paddingBottom="4dp"
+                        android:text="BLOCKED"
+                        android:textColor="@color/card_text_white"
+                        android:textSize="10sp"
+                        android:textStyle="bold"
+                        android:visibility="gone"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/viewAccentLine"
+                        app:layout_constraintStart_toStartOf="parent" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <!-- Card Info Section -->
+            <TextView
+                android:id="@+id/tvInfoTitle"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="32dp"
+                android:text="Информация о карте"
+                android:textColor="@color/text_primary"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/cvCardPreview" />
+
+            <!-- Card Type -->
+            <TextView
+                android:id="@+id/tvCardTypeLabel"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:text="Тип карты:"
+                android:textColor="@color/text_secondary"
+                android:textSize="14sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tvInfoTitle" />
+
+            <TextView
+                android:id="@+id/tvCardType"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:text="Дебетовая"
+                android:textColor="@color/text_primary"
+                android:textSize="16sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tvCardTypeLabel" />
+
+            <!-- Balance -->
+            <TextView
+                android:id="@+id/tvBalanceLabel"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:text="Баланс:"
+                android:textColor="@color/text_secondary"
+                android:textSize="14sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tvCardType" />
+
+            <TextView
+                android:id="@+id/tvBalance"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:text="0 ₸"
+                android:textColor="@color/text_primary"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tvBalanceLabel" />
+
+            <!-- Currency -->
+            <TextView
+                android:id="@+id/tvCurrencyLabel"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:text="Валюта:"
+                android:textColor="@color/text_secondary"
+                android:textSize="14sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tvBalance" />
+
+            <TextView
+                android:id="@+id/tvCurrency"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:text="KZT"
+                android:textColor="@color/text_primary"
+                android:textSize="16sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tvCurrencyLabel" />
+
+            <!-- Expiry Date -->
+            <TextView
+                android:id="@+id/tvExpiryLabel"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:text="Срок действия:"
+                android:textColor="@color/text_secondary"
+                android:textSize="14sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tvCurrency" />
+
+            <TextView
+                android:id="@+id/tvExpiryDate"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:text="12/25"
+                android:textColor="@color/text_primary"
+                android:textSize="16sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tvExpiryLabel" />
+
+            <!-- Card Number (Full) -->
+            <LinearLayout
+                android:id="@+id/llCardNumberRow"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:orientation="horizontal"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tvExpiryDate">
+
+                <TextView
+                    android:id="@+id/tvCardNumberLabel"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Номер карты:"
+                    android:textColor="@color/text_secondary"
+                    android:textSize="14sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/tvExpiryDate" />
+
+                <ImageButton
+                    android:id="@+id/btnToggleCardNumber"
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
+                    android:layout_marginEnd="8dp"
+                    android:background="?attr/selectableItemBackgroundBorderless"
+                    android:src="@drawable/ic_eye"
+                    android:tint="@color/text_secondary"
+                    android:contentDescription="Показать/скрыть номер карты" />
+                
+                <ImageButton
+                    android:id="@+id/btnCopyCardNumber"
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
+                    android:background="?attr/selectableItemBackgroundBorderless"
+                    android:src="@drawable/ic_copy"
+                    android:tint="@color/text_secondary"
+                    android:contentDescription="Копировать номер карты" />
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/tvCardNumberFull"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:text="**** **** **** 1234"
+                android:textColor="@color/text_primary"
+                android:textSize="16sp"
+                android:fontFamily="monospace"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/llCardNumberRow" />
+
+            <!-- Linked Phone Section -->
+            <TextView
+                android:id="@+id/tvLinkedPhoneLabel"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="24dp"
+                android:text="Привязанный номер телефона:"
+                android:textColor="@color/text_secondary"
+                android:textSize="14sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tvCardNumberFull" />
+
+            <LinearLayout
+                android:id="@+id/llLinkedPhoneRow"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tvLinkedPhoneLabel">
+
+                <TextView
+                    android:id="@+id/tvLinkedPhone"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Не привязан"
+                    android:textColor="@color/text_primary"
+                    android:textSize="16sp" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnLinkPhone"
+                    style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Привязать"
+                    android:textSize="14sp" />
+            </LinearLayout>
+
+            <!-- Block/Unblock Card Button -->
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnBlockCard"
+                android:layout_width="0dp"
+                android:layout_height="56dp"
+                android:layout_marginTop="32dp"
+                android:layout_marginBottom="24dp"
+                android:text="Заблокировать карту"
+                android:textColor="@color/white"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                app:backgroundTint="@color/pin_error"
+                app:cornerRadius="12dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/llLinkedPhoneRow" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.core.widget.NestedScrollView>
+</androidx.coordinatorlayout.widget.CoordinatorLayout>
+

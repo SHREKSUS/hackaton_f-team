@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+
+    <!-- App palette -->
+    <color name="background_primary">#FFFFFFFF</color>
+    <color name="surface_primary">#FFF6F6F6</color>
+    <color name="card_background">#FFFFFFFF</color>
+
+    <color name="text_primary">#FF111111</color>
+    <color name="text_secondary">#FF555555</color>
+
+    <color name="button_primary_bg">#FF000000</color>
+    <color name="button_primary_text">#FFFFFFFF</color>
+    <color name="button_secondary_bg">#FFFFFFFF</color>
+    <color name="button_secondary_text">#FF111111</color>
+    <color name="button_border">#FF111111</color>
+
+    <color name="input_stroke">#FF222222</color>
+    <color name="input_hint">#FF7A7A7A</color>
+
+    <color name="divider">#FFE0E0E0</color>
+    <color name="gradient_start">#FFFFFFFF</color>
+    <color name="gradient_end">#FFF6F6F6</color>
+
+    <color name="icon_on_primary">#FFFFFFFF</color>
+    <color name="icon_on_background">#FF111111</color>
+    <color name="status_bar_color">#FFFFFFFF</color>
+    
+    <!-- PIN colors -->
+    <color name="pin_success">#FF4CAF50</color>
+    <color name="pin_error">#FFF44336</color>
+    
+    <!-- Card colors -->
+    <color name="card_dark_bg">#FF000000</color>
+    <color name="card_light_bg">#FFFFFFFF</color>
+    <color name="card_credit_bg">#FF1A1A1A</color>
+    <color name="card_text_white">#FFFFFFFF</color>
+    <color name="card_text_grey">#FFAAAAAA</color>
+    <color name="card_chip_gold">#FFD4AF37</color>
+    <color name="card_chip_blue">#FF2196F3</color>
+    <color name="card_chip_yellow">#FFFFEB3B</color>
+    <color name="card_accent_blue">#FF2196F3</color>
+    <color name="card_accent_yellow">#FFFFEB3B</color>
+    <color name="card_expiry_red">#FFFF0000</color>
+    <color name="transaction_positive">#FF4CAF50</color>
+    <color name="transaction_negative">#FF555555</color>
+    <color name="transaction_card_bg">#FFF5F5F5</color>
+</resources>
