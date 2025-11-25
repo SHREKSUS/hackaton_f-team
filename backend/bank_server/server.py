@@ -38,12 +38,26 @@ twofa_codes = {}
 def get_user_from_token():
     token = request.headers.get('Authorization')
     if not token:
+        print("[DEBUG] No Authorization header found")
         return None
+    
+    # Проверяем формат токена (должен быть "Bearer <token>")
+    if not token.startswith('Bearer '):
+        print(f"[DEBUG] Invalid token format: {token[:20]}...")
+        return None
+    
     try:
-        decoded = jwt.decode(token.split(
-            ' ')[1], app.config['SECRET_KEY'], algorithms=['HS256'])
-        return decoded['phone']
-    except:
+        token_value = token.split(' ')[1]
+        decoded = jwt.decode(token_value, app.config['SECRET_KEY'], algorithms=['HS256'])
+        return decoded.get('phone')
+    except jwt.ExpiredSignatureError:
+        print("[DEBUG] Token expired")
+        return None
+    except jwt.InvalidTokenError as e:
+        print(f"[DEBUG] Invalid token: {e}")
+        return None
+    except Exception as e:
+        print(f"[DEBUG] Error decoding token: {type(e).__name__}: {e}")
         return None
 
 
@@ -201,7 +215,7 @@ def register():
             'phone': phone_or_email,
             'name': name,
             'user_id': user_id,
-            'exp': datetime.datetime.utcnow() + datetime.timedelta(hours=24)
+            'exp': datetime.datetime.utcnow() + datetime.timedelta(days=7)  # 7 дней вместо 24 часов
         }
         token = jwt.encode(token_payload, app.config['SECRET_KEY'], algorithm='HS256')
         
@@ -362,7 +376,7 @@ def login():
         'phone': stored_phone,
         'name': name,
         'user_id': user_id,
-        'exp': datetime.datetime.utcnow() + datetime.timedelta(hours=24)
+        'exp': datetime.datetime.utcnow() + datetime.timedelta(days=7)  # 7 дней вместо 24 часов
     }
 
     token = jwt.encode(
@@ -511,7 +525,7 @@ def verify_2fa():
         'phone': stored_phone,  # Используем сохраненное значение из БД
         'name': name,
         'user_id': user_id,
-        'exp': datetime.datetime.utcnow() + datetime.timedelta(hours=24)
+        'exp': datetime.datetime.utcnow() + datetime.timedelta(days=7)  # 7 дней вместо 24 часов
     }
 
     token = jwt.encode(
@@ -1512,7 +1526,13 @@ def deposit_to_card():
     """Пополнение карты"""
     phone = get_user_from_token()
     if not phone:
-        return jsonify({"success": False, "message": "Неверный токен"}), 401
+        auth_header = request.headers.get('Authorization', '')
+        if not auth_header:
+            return jsonify({"success": False, "message": "Токен не предоставлен"}), 401
+        elif not auth_header.startswith('Bearer '):
+            return jsonify({"success": False, "message": "Неверный формат токена"}), 401
+        else:
+            return jsonify({"success": False, "message": "Токен истек или неверен. Пожалуйста, войдите снова"}), 401
     
     data = request.get_json()
     card_id = data.get('cardId')
