@@ -21,8 +21,17 @@ import com.example.f_bank.api.model.GetUserByPhoneRequest
 import com.example.f_bank.api.model.VerifyPinRequest
 import com.example.f_bank.api.model.DepositRequest
 import com.example.f_bank.api.model.DepositResponse
+import com.example.f_bank.api.model.SendSmsCodeRequest
+import com.example.f_bank.api.model.SendSmsCodeResponse
+import com.example.f_bank.api.model.VerifySmsCodeRequest
+import com.example.f_bank.api.model.VerifySmsCodeResponse
+import com.example.f_bank.api.model.DeleteCardRequest
+import com.example.f_bank.api.model.DeleteCardResponse
+import com.example.f_bank.api.model.CurrencyExchangeRequest
+import com.example.f_bank.api.model.CurrencyExchangeResponse
 import retrofit2.Response
 import retrofit2.http.Body
+import retrofit2.http.DELETE
 import retrofit2.http.GET
 import retrofit2.http.Header
 import retrofit2.http.POST
@@ -72,5 +81,17 @@ interface ApiService {
     
     @POST("cards/deposit")
     suspend fun depositToCard(@Header("Authorization") token: String, @Body request: DepositRequest): Response<DepositResponse>
+    
+    @POST("auth/send-sms-code")
+    suspend fun sendSmsCode(@Body request: SendSmsCodeRequest): Response<SendSmsCodeResponse>
+    
+    @POST("auth/verify-sms-code")
+    suspend fun verifySmsCode(@Body request: VerifySmsCodeRequest): Response<VerifySmsCodeResponse>
+    
+    @POST("cards/delete")
+    suspend fun deleteCard(@Header("Authorization") token: String, @Body request: DeleteCardRequest): Response<DeleteCardResponse>
+    
+    @POST("cards/currency-exchange")
+    suspend fun exchangeCurrency(@Header("Authorization") token: String, @Body request: CurrencyExchangeRequest): Response<CurrencyExchangeResponse>
 }
 
